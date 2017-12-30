@@ -30,10 +30,24 @@
 				<!-- create a class to show the page with questions that will hide until the user clicks the start button -->						
 					<div class="jumbotron hidden" id="quiz_page">
 						<h1>Trivia Time!</h1>
-	 	
-        			
+						<p id="time_left"> Time Remaining: <span id = "timer"></span> <span id="seconds"> 15 </span> Seconds </p>
+					
 						<!-- Question indexed value #0 -->
-	<!--					<div class="questions" id="q0"> 1) Which is safest during a tornado?
+						<div class="questions_answers"
+							<div id ="questions">
+								<div id ="answers">
+								</div>	
+						</div>	
+						<div class="end_button" id="end_of_q_button">
+							<p><a class="btn btn-primary btn-lg" id="end_click" role="button">DONE</a></p>
+						</div>
+					</div>
+						
+				</div>	
+						
+						
+						<!-- Question indexed value #0 -->
+<!--					<div class="questions" id="q0"> 1) Which is safest during a tornado?
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques1" value="car"> Inside a car
@@ -45,7 +59,7 @@
 						</div>
 						
 						<!-- Question indexed value #1 -->
-		<!--				<div class="questions" id="q1"> 2) Which kills more people every year?
+<!--						<div class="questions" id="q1"> 2) Which kills more people every year?
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques2" value="lightning"> Lightning
@@ -57,7 +71,7 @@
 						</div>
 						
 						<!-- Question indexed value #2 -->
-		<!--				<div class="questions" id="q2"> 3) Which type of cloud is highest in the atmosphere?
+	<!--					<div class="questions" id="q2"> 3) Which type of cloud is highest in the atmosphere?
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques3" value="cirrus"> Cirrus
@@ -81,7 +95,7 @@
 						</div>
 						
 						<!-- Question indexed value #4 -->
-		<!--				<div class="questions" id="q4"> 5) Which type of cloud produces lightning?
+	<!--					<div class="questions" id="q4"> 5) Which type of cloud produces lightning?
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques5" value="altostratus"> Altostratus
@@ -93,7 +107,7 @@
 						</div>
 						
 						<!-- Question indexed value #5 -->
-			<!--			<div class="questions" id="q5"> 6) Which time of day is the best for tornado development?
+	<!--					<div class="questions" id="q5"> 6) Which time of day is the best for tornado development?
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques6" value="6-10am"> 6:00am - 10:00am
@@ -105,7 +119,7 @@
 						</div>
 						
 						<!-- Question indexed value #6 -->
-				<!--		<div class="questions" id="q6"> 7) Tornadoes do not form in temperatures lower than 50 degrees Fahrenheit.
+	<!--					<div class="questions" id="q6"> 7) Tornadoes do not form in temperatures lower than 50 degrees Fahrenheit.
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques7" value="true"> True
@@ -115,7 +129,7 @@
 						</div>
 						
 						<!-- Question indexed value #7 -->
-<!--						<div class="questions" id="q7"> 8) A tornado that forms over water is called a Waterdevil.
+	<!--					<div class="questions" id="q7"> 8) A tornado that forms over water is called a Waterdevil.
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques8" value="true"> True
@@ -134,8 +148,8 @@
 							</div>	
 						</div>
 						
-						<!-- Question indexed value #9 -->
-		<!--				<div class="questions" id="q9"> 10) For golf-ball sized hail, a storms updraft must be:
+	<!--					<!-- Question indexed value #9 -->
+	<!--					<div class="questions" id="q9"> 10) For golf-ball sized hail, a storms updraft must be:
 							<div class = "answers">
 								<form>
 								  <input type="radio" name="ques10" value="70mph"> 70 mph
@@ -143,15 +157,8 @@
 								  <input type="radio" name="ques10" value="50mph"> 50 mph
 								  <input type="radio" name="ques10" value="no_updraft"> Does not need an updraft.
 								</form>
-                            -->
-								<div class="end_button" id="end_of_q_button">
-								<p><a class="btn btn-primary btn-lg" id="end_click" role="button">DONE</a></p>
-								</div>
-							</div>	
-						</div>
-						
-                    </div>	 
-                -->              
+	-->							
+								
 				
 				<!-- create a class to show the final page with the user's score that will show after the time runs out -->
 					<div class="jumbotron hidden_until_end" id="results_page">
