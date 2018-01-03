@@ -190,7 +190,11 @@ var questionsArray = [{
 // loop through array of questions and loop through inner array of answers
 // why are you using the tics?  ``?  
 // why do you use "ques${i}"?  where does the ques come from? why not use "questionText"?
+//   because it matches what was in the html, the i = the variable, the index in the first loop  (ques1, ques2, etc..)
 // why are you using id = :q${i}?  Why not reuse "ques${i}"?  And why use {} for the i instead of []?
+    // because it matches the id in the orignal html that is now commented out.{
+    // ${} is syntax for inserting variables into strings.  ${} evaluates whatever is inside the curly braces in the javascript.
+    // Must use back tics and NOT quotes to use the ${} syntax.
 
 
 for (var i=0; i<questionsArray.length; i++) {
@@ -244,12 +248,21 @@ $("#click").on("click", function () {
 
 		if (seconds == 0) {
 
+            // run the checkscore function
+            checkScore();
+      //  $("#end_click").trigger("click");
+        
+    
 		//command to show the results page when time is up
 		$("#results_page").removeClass("hidden_until_end");
 		
 		//command to hide the page with questions
 		$("#quiz_page").addClass("hidden");
-		return;
+    
+        // stops set interval so that console log doesn't keep counting down.
+        clearInterval(timer);
+    // use a "return" when you want to discontinue executing the function.
+        return;
 
     } 	
 		else {
@@ -262,6 +275,8 @@ $("#click").on("click", function () {
 
 // function to skip to results page if the user presses the "Done" button before the time is up. 
 $("#end_click").on("click", function () {
+        checkScore();
+
 	//command to show the results page when time is up
 		$("#results_page").removeClass("hidden_until_end");
 		
@@ -270,7 +285,8 @@ $("#end_click").on("click", function () {
 		return;
 
 		// ========NEED HELP - CANNOT GET THIS TO WORK=========
-	// check score
+    // check score
+    /*
 	$('input[name="ques${i}"]:checked[value="${questionsArray[i].answers[j].correct}"]')
 	if (value==="true")	{
 		right_answers++;
@@ -278,15 +294,47 @@ $("#end_click").on("click", function () {
 	console.log ("number correct:"+ '0');
 		
     };
+*/
 })
 	
 
 
-/*
+
 function checkScore() {
-    var correct_answers = document.getElementByName("ques${i}").checked;
-    document.getElementById("correct_answers").innerHTML = right_answers;
+ var correct = 0;
+ var incorrect = 0; 
+ var unanswered = 0;
+
+    for (var i=0; i<questionsArray.length; i++) {
+        // google jquery find name
+        var checked_answers = $(`[name='ques${i}']:checked`);
+        
+        //  checked_answers is checking to see if we have a value at all, this type of check works with objects
+        if (checked_answers [0]) 
+        
+        //  since we stored the correct and incorrect values as true and false already, the checked_answers.value
+        //  will return a boolean value
+        {
+        console.log(checked_answers[0].value)
+            if (checked_answers[0].value==="true"){
+                correct++;
+                }
+            else {
+                incorrect++;
+            }    
+        }
+
+        else {
+            unanswered++;
+        }
+    }
+
+
+    document.getElementById("right_answers").innerHTML = correct;
+    document.getElementById("wrong_answers").innerHTML = incorrect;
+    document.getElementById("not_answered").innerHTML = unanswered;
 }
+
 
 /*
 function checkScore() {
